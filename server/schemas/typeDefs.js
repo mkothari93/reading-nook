@@ -9,7 +9,7 @@ const typeDefs = gql`
     savedBooks: [book]
   }
 
-  type Post {
+  type Book {
     _id: ID
     bookId: String
     authors: [author]
