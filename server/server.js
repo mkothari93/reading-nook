@@ -23,14 +23,14 @@ startServer()
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// //Serve up static assets
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/build')));
-// }
+//Serve up static assets
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/src/index.js'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/src/index.js'));
+});
 
 db.once('open', () => {
   app.listen(PORT, () => {
